@@ -1,0 +1,6 @@
+from locust import task
+from config.product_config import PRODUCT_URL, TASK_WEIGHT
+
+@task(TASK_WEIGHT)
+def view_product(self):
+    self.client.get(PRODUCT_URL)
